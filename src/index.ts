@@ -155,7 +155,7 @@ class Client {
             this.transporter
               .sendMail({
                 to: lead.email,
-                from: '"Eric Tabacaru" <eric@tyche.agency>',
+                from: `"Eric Tabacaru" <${user}>`,
                 subject,
                 html,
               })
@@ -187,7 +187,7 @@ class Client {
             this.transporter
               .sendMail({
                 to: lead.email,
-                from: '"Eric Tabacaru" <eric@tyche.agency>',
+                from: `"Eric Tabacaru" <${user}>`,
                 subject,
                 html,
               })
@@ -219,7 +219,7 @@ class Client {
             this.transporter
               .sendMail({
                 to: lead.email,
-                from: '"Eric Tabacaru" <eric@tyche.agency>',
+                from: `"Eric Tabacaru" <${user}>`,
                 subject,
                 html,
               })
