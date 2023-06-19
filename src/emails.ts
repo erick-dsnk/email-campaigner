@@ -20,6 +20,7 @@ export const firstStepTemplate = {
     Eric Tabacaru<br>
     Tyche Agency<br>
     https://tyche.agency
+    <img src="http://141.144.204.1:3002/static/pixel.jpeg">
     </body>`
 }
 
@@ -30,6 +31,7 @@ export const secondStepTemplate = {
     Hey, {firstName}!<br><br>
 
     I hope this email finds you well! I'm following up to an email I sent you a few days ago. Did you have time to look over it?<br><br>
+    <img src="http://141.144.204.1:3002/static/pixel.jpeg">
     </body>`
 }
 
@@ -47,5 +49,6 @@ export const thirdStepTemplate = {
     Eric Tabacaru<br>
     Tyche Agency<br>
     https://tyche.agency
+    <img src="http://141.144.204.1:3002/static/pixel.jpeg">
     </body>`
 }

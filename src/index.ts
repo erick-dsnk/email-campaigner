@@ -22,6 +22,10 @@ function getLeads(file: string): Array<Lead> {
   return JSON.parse(data);
 }
 
+function storeLeads(file: string, leads: Array<Lead>): void {
+  fs.writeFileSync(file, JSON.stringify(leads, null, 2));
+}
+
 function randomTime(minTime: number, maxTime: number): number {
   return Math.floor(Math.random() * (maxTime - minTime + 1) + minTime) * 60;
 }
@@ -170,6 +174,11 @@ class Client {
                 );
               });
 
+            lead.step += 1;
+
+            this.leads[this.leads.findIndex((v) => v.email === lead.email)] =
+              lead;
+
             break;
           }
 
@@ -201,6 +210,11 @@ class Client {
                   `The following error occured when trying to send an email to ${lead.email}:\n${e}`
                 );
               });
+
+            lead.step += 1;
+
+            this.leads[this.leads.findIndex((v) => v.email === lead.email)] =
+              lead;
 
             break;
           }
@@ -234,17 +248,24 @@ class Client {
                 );
               });
 
+            lead.step += 1;
+
+            this.leads[this.leads.findIndex((v) => v.email === lead.email)] =
+              lead;
+
             break;
           }
         }
       }
 
       this.logger.addDebugLog(
-        `Waiting for ${timeToWait}s before moving on to next lead.`
+        `Waiting for ${timeToWait}min before moving on to next lead.`
       );
 
       await wait(timeToWait * 1000);
     } while (this.queue.getWaiting().length != 0);
+
+    storeLeads(leadsFile, this.leads);
   }
 }
 
